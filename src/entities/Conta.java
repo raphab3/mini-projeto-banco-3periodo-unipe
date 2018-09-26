@@ -112,18 +112,21 @@ public class Conta {
 		movimentar(tipo, new Date().toString(), "12:00h", valor);
 	}
 	
-	public void transferir(double valor, Conta conta) {
+	public void transferir(double valor, Conta conta1, Conta conta2) {
 		int tipo = 3;
 				
-		if(valor <= saldo) {
-			conta.setSaldo(saldo+= valor); ;
-			movimentar(tipo, new Date().toString(), "22:00h", valor);
+		if(valor <= this.saldo) {
+			conta1.setSaldo(saldo - valor); ;
+			conta1.movimentar(tipo, new Date().toString(), "7:00h", valor);
+			conta2.setSaldo(saldo +  valor);
+			conta2.movimentar(tipo, new Date().toString(), "22:00h", valor);
 			
 		}
 		else {
 			System.out.println("O valor desejado eh superior ao seu saldo");
 		}
 	}
+	
 
 	@Override
 	public String toString() {

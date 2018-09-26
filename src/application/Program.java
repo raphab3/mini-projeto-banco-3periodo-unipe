@@ -17,8 +17,6 @@ public class Program {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Pessoa pF = new PessoaFisica(5858556, 6968585, new Date().toString(), 50000.0, 1, new Endereco("skdjskdjs", 58058410, "ksjkjs", 104, "joao"));
-		Pessoa pJ = new PessoaJuridica(1005852, new Date().toString(), 50000.0, 1, new Endereco("skdjskdjs", 58058410, "ksjkjs", 104, "joao"));
 		
 		Pessoa p = new Pessoa("Rafael", 5000.0, 1, new Endereco("Sebastião da silva Leal", 58058840,"Mangabeira", 94, "João Pessoa"));
 		
@@ -98,23 +96,23 @@ public class Program {
 								int contaTransf = sc.nextInt();
 								sc.nextLine();
 								
+								int qtdContas = 0;
 								for(Conta c2 : ag.getContas()) {
 									
 									if(c2.getNumeroConta() == contaTransf) {
-										c2.transferir(valorTransf, c2); //adiciona movimento a conta que recebe
+										c2.transferir(valorTransf, c1, c2); //adiciona movimento a conta que recebe
+										qtdContas++;
 									}
+									
 								}
-								
-								//Adiciona movimento a conta que transfere
-								if(c1.getSaldo() > valorTransf) {
-									c1.movimentar(3, new Date().toString(), new Date().toString(), valorTransf);
+								if (qtdContas == 0) {
+									System.out.println("Conta não encontrada");
 								}
-								
-								
 								
 								break;
 							case 4:
 								
+								double saldo = 0;
 								int cont = 0; //Verificar quantos movimentos dentro da lista
 								for(Movimento mov : c1.getMovimentos()) {
 										System.out.println(mov);
@@ -122,8 +120,9 @@ public class Program {
 									
 								}
 								if(cont == 0) {
-									System.out.println("Extrato vazio");
+									System.out.println("Sem Novimentação");
 								}
+								System.out.println("Saldo: "  + c1.getSaldo());
 								break;
 							case 5:
 								opcAcessar = 5;

@@ -4,9 +4,8 @@ public class PessoaFisica extends Pessoa{
 	
 	private long cpf;
 	private long rg;
-	
-	public PessoaFisica(long cpf, long rg, String nome, Double rendaPessoa, Integer sitPessoa, Endereco endereco) {
-		super();
+	public PessoaFisica(String nome, Double rendaPessoa, Integer sitPessoa, Endereco endereco, long cpf, long rg) {
+		super(nome, rendaPessoa, sitPessoa, endereco);
 		this.cpf = cpf;
 		this.rg = rg;
 	}
@@ -22,6 +21,8 @@ public class PessoaFisica extends Pessoa{
 	public void setRg(long rg) {
 		this.rg = rg;
 	}
+	
+	
 	
 	
 	

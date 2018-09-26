@@ -4,8 +4,8 @@ public class PessoaJuridica extends Pessoa{
 	
 	private long cnpj;
 
-	public PessoaJuridica(long cnpj, String nome, Double rendaPessoa, Integer sitPessoa, Endereco endereco) {
-		super();
+	public PessoaJuridica(String nome, Double rendaPessoa, Integer sitPessoa, Endereco endereco, long cnpj) {
+		super(nome, rendaPessoa, sitPessoa, endereco);
 		this.cnpj = cnpj;
 	}
 
@@ -16,6 +16,8 @@ public class PessoaJuridica extends Pessoa{
 	public void setCnpj(long cnpj) {
 		this.cnpj = cnpj;
 	}
+
+	
 	
 	
 }	
